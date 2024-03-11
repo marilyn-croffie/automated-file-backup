@@ -16,8 +16,8 @@ then
 fi
 
 # This sets directory variables to respective script argument paths
-targetDirectory=$(echo $1)
-destinationDirectory=$(echo $2)
+targetDirectory=`$1`
+destinationDirectory=`$2`
 
 # This validates input and assignments
 echo -e "The directory to be backed up is $targetDirectory"
@@ -25,13 +25,13 @@ echo -e "The directory to store the backed up files is $destinationDirectory"
 
 # This gets the current timestamp in seconds for backup filename identifier
 currentTS=$(date +%s)
-backupFileName=$(echo -e "backup-$currentTS.tar.gz")
+backupFileName=`backup-$currentTS.tar.gz`
 
 # This defines relevant navigation variables and goes to the target directory
-origAbsPath=`echo $(pwd)`
+origAbsPath=`pwd`
 
 cd $destinationDirectory
-destDirAbsPath=`echo $(pwd)`
+destDirAbsPath=`pwd`
 
 cd $origAbsPath
 cd $targetDirectory
